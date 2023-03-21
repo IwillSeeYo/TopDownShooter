@@ -33,12 +33,8 @@ public class YellowEnemyAttack : MonoBehaviour
         if (_enemy.Target == null)
             return;
 
-        Vector3 targetPosition = _enemy.Target.transform.position;
-        Vector3 shootPosition = _enemy.transform.position;
-        Vector3 direction = targetPosition - shootPosition;
-
+        Vector3 direction = _enemy.Target.transform.position - _enemy.transform.position;
         var bullet = Instantiate(_blast, transform.position, Quaternion.identity);
-
         bullet.transform.right = direction;
     }
 }

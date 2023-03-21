@@ -44,6 +44,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void AnimateMove(Vector2 direction)
     {
-        _animator.SetBool(IsMove, direction.x != 0 || direction.y != 0);
+        _animator.SetBool(IsMove, direction != Vector2.zero);
     }
 }

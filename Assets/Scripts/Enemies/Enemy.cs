@@ -22,8 +22,6 @@ public class Enemy : MonoBehaviour
     public Player Target => _target;
     public int Reward => _reward;
 
-    public event UnityAction<Enemy> Dying;
-
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -52,7 +50,6 @@ public class Enemy : MonoBehaviour
 
         if (_health <= 0)
         {
-            Dying?.Invoke(this);
             Destroy(gameObject);
         }
     }
