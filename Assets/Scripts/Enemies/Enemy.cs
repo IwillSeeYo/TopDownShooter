@@ -1,13 +1,18 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(AudioSource))]
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _health;
     [SerializeField] private int _damage;
     [SerializeField] private int _reward;
+
+    private const string ApplyDamageAnimation = "ApplyDamage";
 
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
@@ -42,7 +47,7 @@ public class Enemy : MonoBehaviour
     public void ApplyDamage(int damage)
     {
         _health -= damage;
-        _animator.Play("ApplyDamage");
+        _animator.Play(ApplyDamageAnimation);
         _audioSource.Play();
 
         if (_health <= 0)
@@ -57,9 +62,6 @@ public class Enemy : MonoBehaviour
         if (_target == null)
             return;
 
-        if (transform.position.x > _target.transform.position.x)
-            _spriteRenderer.flipX = true;
-        else
-            _spriteRenderer.flipX = false;
+        _spriteRenderer.flipX = transform.position.x >_target.transform.position.x ? true: false;
     }
 }

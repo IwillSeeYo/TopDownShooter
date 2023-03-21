@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(AudioSource))]
 
 public class Player : MonoBehaviour
 {
@@ -23,7 +24,6 @@ public class Player : MonoBehaviour
     {
         _currentHealth = _health;
         _currentWeapon = _weapons[0];
-
         _movement = GetComponent<PlayerMovement>();
         _audioSource = GetComponent<AudioSource>();
     }
@@ -31,13 +31,11 @@ public class Player : MonoBehaviour
     public void ApplyDamage(int damage)
     {
         _currentHealth -= damage;
-        _audioSource.Play();
 
+        _audioSource.Play();
         HealthChanged?.Invoke(_currentHealth, _health);
 
         if (_currentHealth <= 0)
-        {
             Destroy(gameObject);
-        }
     }
 }

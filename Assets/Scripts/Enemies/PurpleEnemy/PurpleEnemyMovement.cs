@@ -9,9 +9,9 @@ public class PurpleEnemyMovement : EnemyMovement
 
     public override void Move()
     {
-        if (_enemy.Target == null)
+        if (Enemy.Target == null)
             return;
 
-        transform.position = Vector2.MoveTowards(transform.position, _enemy.Target.transform.position, _speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, Enemy.Target.transform.position, Speed * Time.deltaTime);
     }
 }

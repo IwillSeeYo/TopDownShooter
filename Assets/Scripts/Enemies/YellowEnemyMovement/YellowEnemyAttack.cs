@@ -1,5 +1,7 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Enemy))]
+
 public class YellowEnemyAttack : MonoBehaviour
 {
     [SerializeField] private Transform _shootPoint;
@@ -8,7 +10,6 @@ public class YellowEnemyAttack : MonoBehaviour
 
     private Enemy _enemy;
     private float _lastAttackTime;
-
 
     private void Start()
     {

@@ -1,14 +1,16 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Enemy))]
+
 public abstract class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] protected float _speed;
+    [SerializeField] protected float Speed;
 
-    protected Enemy _enemy;
+    protected Enemy Enemy;
 
     private void Start()
     {
-        _enemy = GetComponent<Enemy>();
+        Enemy = GetComponent<Enemy>();
     }
 
     public abstract void Move();

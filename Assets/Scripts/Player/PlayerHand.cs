@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerHand : MonoBehaviour
@@ -15,7 +12,6 @@ public class PlayerHand : MonoBehaviour
     private void HandleAim()
     {
         Vector3 moucePosition = GetAimPosition();
-
         Vector3 handDirection = (moucePosition - transform.position).normalized;
         float angle = Mathf.Atan2(handDirection.y, handDirection.x) * Mathf.Rad2Deg;
         _handPosition.eulerAngles = new Vector3(0, 0, angle);
@@ -26,12 +22,7 @@ public class PlayerHand : MonoBehaviour
     private void GetHandLocalScale(float angle)
     {
         Vector3 handLocalScale = Vector3.one;
-
-        if (angle > 90 || angle < -90)
-            handLocalScale.y = -1f;
-        else
-            handLocalScale.y = 1f;
-
+        handLocalScale.y = angle > 90 || angle < -90 ? -1f : 1f;
         _handPosition.localScale = handLocalScale;
     }
 

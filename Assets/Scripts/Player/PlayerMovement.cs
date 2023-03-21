@@ -2,6 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SpriteRenderer))]
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -33,24 +34,17 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = new Vector3(direction.x, direction.y, 0);
 
         transform.Translate(move * scaledMoveSpeed);
-
         Flip(direction);
         AnimateMove(direction);
     }
 
     private void Flip(Vector2 direction)
     {
-        if (direction.x > 0)
-            _spriteRenderer.flipX = false;
-        else if (direction.x < 0)
-            _spriteRenderer.flipX = true;
+        _spriteRenderer.flipX = direction.x > 0 ? false : true;
     }
 
     private void AnimateMove(Vector2 direction)
     {
-        if (direction.x != 0 || direction.y != 0)
-            _animator.SetBool("isMove", true);
-        else
-            _animator.SetBool("isMove", false);
+        _animator.SetBool("isMove", direction.x != 0 || direction.y != 0);
     }
 }

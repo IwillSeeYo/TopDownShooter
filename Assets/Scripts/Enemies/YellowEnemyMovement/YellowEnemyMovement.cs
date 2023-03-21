@@ -4,17 +4,17 @@ public class YellowEnemyMovement : EnemyMovement
 {
     [SerializeField] private float _distanceRange;
 
-    void Update()
+    private void Update()
     {
         Move();
     }
 
     public override void Move()
     {
-        if (_enemy.Target == null)
+        if (Enemy.Target == null)
             return;
 
-        if (Mathf.Abs(_enemy.Target.transform.position.x-transform.position.x) > _distanceRange)
-            transform.position = Vector2.MoveTowards(transform.position, _enemy.Target.transform.position, _speed * Time.deltaTime);
+        if (Mathf.Abs(Enemy.Target.transform.position.x-transform.position.x) > _distanceRange)
+            transform.position = Vector2.MoveTowards(transform.position, Enemy.Target.transform.position, Speed * Time.deltaTime);
     }
 }

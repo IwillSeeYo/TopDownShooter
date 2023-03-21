@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
+
 public class PurpleEnemyAttack : MonoBehaviour
 {
     [SerializeField] private int _damage;
@@ -10,7 +12,7 @@ public class PurpleEnemyAttack : MonoBehaviour
     private Coroutine _coroutine;
     private bool _canAttack;
 
-    void Start()
+    private void Start()
     {
         _animator = GetComponent<Animator>();
     }

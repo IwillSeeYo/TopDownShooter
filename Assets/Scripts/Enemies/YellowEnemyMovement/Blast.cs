@@ -15,7 +15,6 @@ public class Blast : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out Player player))
         {
             player.ApplyDamage(_damage);
-
             Destroy(gameObject);
         }
     }
