@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(AudioSource))]
 
 public class Player : MonoBehaviour
@@ -10,7 +9,6 @@ public class Player : MonoBehaviour
     [SerializeField] private int _health;
     [SerializeField] private List<Weapon> _weapons;
 
-    private PlayerMovement _movement;
     private Weapon _currentWeapon;
     private int _currentHealth;
     private AudioSource _audioSource;
@@ -24,7 +22,6 @@ public class Player : MonoBehaviour
     {
         _currentHealth = _health;
         _currentWeapon = _weapons[0];
-        _movement = GetComponent<PlayerMovement>();
         _audioSource = GetComponent<AudioSource>();
     }
 

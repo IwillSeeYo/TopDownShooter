@@ -30,7 +30,6 @@ public class YellowEnemyAttack : MonoBehaviour
 
     private void Attack()
     {
-
         if (_enemy.Target == null)
             return;
 

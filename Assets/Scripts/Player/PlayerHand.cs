@@ -21,8 +21,10 @@ public class PlayerHand : MonoBehaviour
 
     private void GetHandLocalScale(float angle)
     {
+        int reflectionAngle = 90;
+        float scaleX = 1;
         Vector3 handLocalScale = Vector3.one;
-        handLocalScale.y = angle > 90 || angle < -90 ? -1f : 1f;
+        handLocalScale.y = angle > reflectionAngle || angle < -reflectionAngle ? -scaleX : scaleX;
         _handPosition.localScale = handLocalScale;
     }
 

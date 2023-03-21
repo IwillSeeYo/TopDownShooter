@@ -1,21 +1,20 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
 
 public class PlayerMovement : MonoBehaviour
 {
+    private const string IsMove = "IsMove";
+
     [SerializeField] private float _speed;
 
-    private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
     private PlayerControls _playerControls;
 
     private void Awake()
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _playerControls = new PlayerControls();
@@ -45,6 +44,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void AnimateMove(Vector2 direction)
     {
-        _animator.SetBool("isMove", direction.x != 0 || direction.y != 0);
+        _animator.SetBool(IsMove, direction.x != 0 || direction.y != 0);
     }
 }

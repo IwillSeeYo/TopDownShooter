@@ -1,5 +1,8 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Player))]
+[RequireComponent(typeof(AudioSource))]
+
 public class PlayerShot : MonoBehaviour
 {
     [SerializeField] private Transform _shootPoint;
@@ -16,6 +19,7 @@ public class PlayerShot : MonoBehaviour
         _playerControls.Enable();
         _playerControls.Actions.Shoot.performed += ctx => OnShoot();
     }
+
     private void Start()
     {
         _player = GetComponent<Player>();

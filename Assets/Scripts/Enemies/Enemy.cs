@@ -8,11 +8,11 @@ using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
+    private const string ApplyDamageAnimation = "ApplyDamage";
+
     [SerializeField] private int _health;
     [SerializeField] private int _damage;
     [SerializeField] private int _reward;
-
-    private const string ApplyDamageAnimation = "ApplyDamage";
 
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
